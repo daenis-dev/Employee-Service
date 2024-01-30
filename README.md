@@ -194,6 +194,8 @@ For security purposes, the RSA key is not included with version control. Instead
 -Dkeystore-alias="app-name"
 -Ddatabase-username="postgres"
 -Ddatabase-password="changeit"
+-Dkeycloak-admin-username="auth-admin"
+-Dkeycloak-admin-password="changeit"
 ```
 
 - Supplied as VM options in IntelliJ
