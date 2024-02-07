@@ -24,6 +24,7 @@ final class EmployeeService implements CreateEmployee, FindAllEmployees, FindEmp
         employee.setFirstName(theRequest.getFirstName());
         employee.setLastName(theRequest.getLastName());
         employee.setJobTitle(jobTitleRepository.findByName(theRequest.getJobTitle()).orElseThrow(() -> new InvalidRequestException("Please select a valid job title")));
+        employee.setEmailAddress(theRequest.getEmailAddress());
         employee.setSalary(theRequest.getSalary());
         return employeeRepository.save(employee).getDetails();
     }

@@ -50,25 +50,18 @@ For security purposes, the RSA key is not included with version control. Instead
       name VARCHAR(255)
   );
   
-  CREATE TABLE companies (
-      id SERIAL PRIMARY KEY,
-      name VARCHAR(255)
-  );
-  
   CREATE TABLE employees (
       id SERIAL PRIMARY KEY,
       first_name VARCHAR(255),
       last_name VARCHAR(255),
+      email_address VARCHAR(255),
       salary DECIMAL(10, 2),
       job_title_id INT,
-      company_id INT,
-      FOREIGN KEY (job_title_id) REFERENCES job_titles(id),
-      FOREIGN KEY (company_id) REFERENCES companies(id)
+      FOREIGN KEY (job_title_id) REFERENCES job_titles(id)
   );
   
   INSERT INTO job_titles (name) VALUES ('Software Engineer');
-  INSERT INTO companies (name) VALUES ('Example Company LLC');
-  INSERT INTO employees (first_name, last_name, salary, job_title_id, company_id) VALUES ('Jon', 'Doe', 150000.00, 1, 1);
+  INSERT INTO employees (first_name, last_name, email_address, salary, job_title_id) VALUES ('Jon', 'Doe', 'jon.doe@mail.com', 150000.00, 1);
   ```
 
 
@@ -194,6 +187,8 @@ For security purposes, the RSA key is not included with version control. Instead
 -Dkeystore-alias="app-name"
 -Ddatabase-username="postgres"
 -Ddatabase-password="changeit"
+-Dkeycloak-admin-username="auth-admin"
+-Dkeycloak-admin-password="changeit"
 ```
 
 - Supplied as VM options in IntelliJ
@@ -206,6 +201,8 @@ For security purposes, the RSA key is not included with version control. Instead
 -Dkeystore-type="pkcs12"
 -Dkeystore-alias="employee-service"
 -Dspring.profiles.active="it"
+-Dkeycloak-admin-username="NA"
+-Dkeycloak-admin-password="NA"
 ```
 
 - For running integration tests

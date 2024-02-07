@@ -46,7 +46,7 @@ class EmployeeControllerTest {
 
     @Test
     void createsEmployee() throws Exception {
-        EmployeeDetails employeeDetails = new EmployeeDetails(1, "", "", "", 0);
+        EmployeeDetails employeeDetails = new EmployeeDetails(1, "", "", "", "", 0);
 
         when(createEmployee.executeFor(any())).thenReturn(employeeDetails);
 
@@ -62,7 +62,7 @@ class EmployeeControllerTest {
 
     @Test
     void findsAllEmployees() throws Exception {
-        EmployeeDetails employeeDetails = new EmployeeDetails(1, "jon", "doe", "Software Engineer", 150000.00);
+        EmployeeDetails employeeDetails = new EmployeeDetails(1, "jon", "doe", "Software Engineer", "", 150000.00);
 
         when(findAllEmployees.execute()).thenReturn(Collections.singletonList(employeeDetails));
 
@@ -73,7 +73,7 @@ class EmployeeControllerTest {
 
     @Test
     void findsEmployeeById() throws Exception {
-        EmployeeDetails employeeDetails = new EmployeeDetails(1, "jon", "doe", "Software Engineer", 150000.00);
+        EmployeeDetails employeeDetails = new EmployeeDetails(1, "jon", "doe", "Software Engineer", "", 150000.00);
 
         when(findEmployeeById.executeFor(1)).thenReturn(employeeDetails);
 
