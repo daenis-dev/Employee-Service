@@ -9,6 +9,7 @@ public final class EmployeeDetails {
     private long id;
     private String firstName;
     private String lastName;
+    private String emailAddress;
     private String title;
     private double salary;
 }

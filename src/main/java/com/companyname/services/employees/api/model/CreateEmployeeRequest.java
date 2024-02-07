@@ -8,6 +8,7 @@ public final class CreateEmployeeRequest {
 
     private String firstName;
     private String lastName;
+    private String emailAddress;
     private String jobTitle;
     private double salary;
 
@@ -24,6 +25,14 @@ public final class CreateEmployeeRequest {
             throw new InvalidRequestException("Last name required for new employee");
         }
         this.lastName = lastName;
+        return this;
+    }
+
+    public CreateEmployeeRequest withEmailAddress(String emailAddress) {
+        if (emailAddress == null || emailAddress.isEmpty()) {
+            throw new InvalidRequestException("Email address required for new employee");
+        }
+        this.emailAddress = emailAddress;
         return this;
     }
 

@@ -9,6 +9,7 @@ CREATE TABLE employees (
     id INT DEFAULT NEXT VALUE FOR employees_id_seq PRIMARY KEY,
     first_name VARCHAR(255),
     last_name VARCHAR(255),
+    email_address VARCHAR(255),
     salary DECIMAL(10, 2),
     job_title_id INT,
     FOREIGN KEY (job_title_id) REFERENCES job_titles(id)

@@ -25,12 +25,14 @@ public final class EmployeeController {
     public ResponseEntity<EmployeeDetails> createEmployee(
             @RequestParam("first-name") String firstName,
             @RequestParam("last-name") String lastName,
+            @RequestParam("email-address") String emailAddress,
             @RequestParam("job-title") String jobTitle,
             @RequestParam("salary") String salary) {
         return ResponseEntity.status(HttpStatus.CREATED)
                 .body(createEmployee.executeFor(new CreateEmployeeRequest()
                         .withFirstName(firstName)
                         .withLastName(lastName)
+                        .withEmailAddress(emailAddress)
                         .withJobTitle(jobTitle)
                         .withSalary(salary)));
     }

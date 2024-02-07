@@ -26,6 +26,9 @@ final class Employee {
     @Column(name = "last_name")
     private String lastName;
 
+    @Column(name = "email_address")
+    private String emailAddress;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "job_title_id")
     private JobTitle jobTitle;
@@ -34,6 +37,6 @@ final class Employee {
     private Double salary;
 
     EmployeeDetails getDetails() {
-        return new EmployeeDetails(id, firstName, lastName, jobTitle.getName(), salary);
+        return new EmployeeDetails(id, firstName, lastName, emailAddress, jobTitle.getName(), salary);
     }
 }
