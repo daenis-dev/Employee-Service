@@ -2,7 +2,6 @@ package com.companyname.services.employees.api;
 
 import com.companyname.services.employees.api.behavior.CreateEmployee;
 import com.companyname.services.employees.api.behavior.FindAllEmployees;
-import com.companyname.services.employees.api.behavior.FindEmployeeById;
 import com.companyname.services.employees.api.controller.EmployeeController;
 import com.companyname.services.employees.api.model.EmployeeDetails;
 import org.junit.jupiter.api.BeforeEach;

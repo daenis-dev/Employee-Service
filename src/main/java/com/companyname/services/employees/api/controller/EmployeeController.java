@@ -2,9 +2,10 @@ package com.companyname.services.employees.api.controller;
 
 import com.companyname.services.employees.api.behavior.CreateEmployee;
 import com.companyname.services.employees.api.behavior.FindAllEmployees;
-import com.companyname.services.employees.api.behavior.FindEmployeeById;
+import com.companyname.services.employees.api.behavior.UpdateEmployee;
 import com.companyname.services.employees.api.model.CreateEmployeeRequest;
 import com.companyname.services.employees.api.model.EmployeeDetails;
+import com.companyname.services.employees.api.model.UpdateEmployeeRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,7 +20,7 @@ public final class EmployeeController {
 
     private final CreateEmployee createEmployee;
     private final FindAllEmployees findAllEmployees;
-    private final FindEmployeeById findEmployeeById;
+    private final UpdateEmployee updateEmployee;
 
     @PostMapping("/v1/employees")
     public ResponseEntity<EmployeeDetails> createEmployee(
@@ -42,8 +43,20 @@ public final class EmployeeController {
         return ResponseEntity.ok(findAllEmployees.execute());
     }
 
-    @GetMapping("/v1/employees/{id}")
-    public ResponseEntity<EmployeeDetails> findById(@PathVariable("id") long id) {
-        return ResponseEntity.ok(findEmployeeById.executeFor(id));
+    @PutMapping("/v1/employees/{id}")
+    public ResponseEntity<EmployeeDetails> updateEmployee(@PathVariable("id") String id,
+                                                          @RequestParam("first-name") String firstName,
+                                                          @RequestParam("last-name") String lastName,
+                                                          @RequestParam("email-address") String emailAddress,
+                                                          @RequestParam("job-title") String jobTitle,
+                                                          @RequestParam("salary") String salary) {
+        return ResponseEntity.status(HttpStatus.OK)
+                .body(updateEmployee.executeFor(new UpdateEmployeeRequest()
+                        .withId(id)
+                        .withFirstName(firstName)
+                        .withLastName(lastName)
+                        .withEmailAddress(emailAddress)
+                        .withJobTitle(jobTitle)
+                        .withSalary(salary)));
     }
 }

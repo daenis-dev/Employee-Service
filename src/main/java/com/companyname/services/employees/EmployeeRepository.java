@@ -14,7 +14,4 @@ interface EmployeeRepository extends JpaRepository<Employee, Long> {
 
     @Query("SELECT NEW com.companyname.services.employees.api.model.EmployeeDetails(e.id, e.firstName, e.lastName, e.emailAddress, jt.name, e.salary) FROM Employee e JOIN e.jobTitle jt")
     List<EmployeeDetails> findAllEmployeeDetails();
-
-    @Query("SELECT NEW com.companyname.services.employees.api.model.EmployeeDetails(e.id, e.firstName, e.lastName, e.emailAddress, jt.name, e.salary) FROM Employee e JOIN e.jobTitle jt WHERE e.id = :id")
-    Optional<EmployeeDetails> findEmployeeDetailsById(@Param("id") long id);
 }
