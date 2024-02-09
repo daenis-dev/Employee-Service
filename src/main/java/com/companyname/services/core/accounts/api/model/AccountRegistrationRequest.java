@@ -1,17 +1,17 @@
-package com.companyname.services.core.users.api.model;
+package com.companyname.services.core.accounts.api.model;
 
 import com.companyname.services.core.errorhandling.InvalidRequestException;
 import lombok.Getter;
 
 @Getter
-public final class UserRegistrationRequest {
+public final class AccountRegistrationRequest {
 
     private String firstName;
     private String lastName;
     private String emailAddress;
     private String password;
 
-    public UserRegistrationRequest withFirstName(String firstName) {
+    public AccountRegistrationRequest withFirstName(String firstName) {
         if (firstName == null || firstName.isEmpty()) {
             throw new InvalidRequestException("First name required for new account");
         }
@@ -19,7 +19,7 @@ public final class UserRegistrationRequest {
         return this;
     }
 
-    public UserRegistrationRequest withLastName(String lastName) {
+    public AccountRegistrationRequest withLastName(String lastName) {
         if (lastName == null || lastName.isEmpty()) {
             throw new InvalidRequestException("Last name required for new account");
         }
@@ -27,7 +27,7 @@ public final class UserRegistrationRequest {
         return this;
     }
 
-    public UserRegistrationRequest withEmailAddress(String emailAddress) {
+    public AccountRegistrationRequest withEmailAddress(String emailAddress) {
         if (emailAddress == null || emailAddress.isEmpty()) {
             throw new InvalidRequestException("Email address required for new account");
         }
@@ -35,7 +35,7 @@ public final class UserRegistrationRequest {
         return this;
     }
 
-    public UserRegistrationRequest withPassword(String password) {
+    public AccountRegistrationRequest withPassword(String password) {
         if (password == null || password.isEmpty()) {
             throw new InvalidRequestException("Password required for new account");
         }
@@ -43,7 +43,7 @@ public final class UserRegistrationRequest {
         return this;
     }
 
-    public UserRegistrationRequest confirmPassword(String password) {
+    public AccountRegistrationRequest confirmPassword(String password) {
         if (password == null || password.isEmpty() || !password.equals(this.password)) {
             throw new InvalidRequestException("Passwords do not match for new account");
         }

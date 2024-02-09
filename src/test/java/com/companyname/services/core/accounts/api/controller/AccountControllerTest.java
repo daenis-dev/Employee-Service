@@ -1,6 +1,6 @@
-package com.companyname.services.core.users.api.controller;
+package com.companyname.services.core.accounts.api.controller;
 
-import com.companyname.services.core.users.api.behavior.RegisterUser;
+import com.companyname.services.core.accounts.api.behavior.RegisterAccount;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -10,23 +10,22 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 import static org.hamcrest.CoreMatchers.is;
-import static org.junit.jupiter.api.Assertions.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @ExtendWith(MockitoExtension.class)
-class UserControllerTest {
+class AccountControllerTest {
 
     @Mock
-    private RegisterUser registerUser;
+    private RegisterAccount registerAccount;
 
     private MockMvc mockMvc;
 
     @BeforeEach
     void init() {
         mockMvc = MockMvcBuilders
-                .standaloneSetup(new UserController(registerUser))
+                .standaloneSetup(new AccountController(registerAccount))
                 .build();
     }
 

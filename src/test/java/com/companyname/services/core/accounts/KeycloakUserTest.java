@@ -1,6 +1,6 @@
-package com.companyname.services.core.users;
+package com.companyname.services.core.accounts;
 
-import com.companyname.services.core.users.api.model.UserRegistrationRequest;
+import com.companyname.services.core.accounts.api.model.AccountRegistrationRequest;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -22,7 +22,7 @@ class KeycloakUserTest {
         String theEmailAddress = "jimmy.recard@jr.com";
         String thePassword = "changeit";
 
-        KeycloakUser theUpdatedUser = keycloakUser.mappedFrom(new UserRegistrationRequest()
+        KeycloakUser theUpdatedUser = keycloakUser.mappedFrom(new AccountRegistrationRequest()
                 .withFirstName(theFirstName)
                 .withLastName(theLastName)
                 .withEmailAddress(theEmailAddress)

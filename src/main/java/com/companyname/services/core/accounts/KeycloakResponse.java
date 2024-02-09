@@ -1,4 +1,4 @@
-package com.companyname.services.core.users;
+package com.companyname.services.core.accounts;
 
 import lombok.Getter;
 import lombok.Setter;

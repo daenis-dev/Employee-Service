@@ -1,4 +1,4 @@
-package com.companyname.services.core.users.api.model;
+package com.companyname.services.core.accounts.api.model;
 
 import com.companyname.services.core.errorhandling.InvalidRequestException;
 import org.junit.jupiter.api.BeforeEach;
@@ -7,20 +7,20 @@ import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
-class UserRegistrationRequestTest {
+class AccountRegistrationRequestTest {
 
-    private UserRegistrationRequest userRegistrationRequest;
+    private AccountRegistrationRequest accountRegistrationRequest;
 
     @BeforeEach
     void init() {
-        userRegistrationRequest = new UserRegistrationRequest();
+        accountRegistrationRequest = new AccountRegistrationRequest();
     }
 
     @Test
     void setsFirstNameForValidInput() {
         String theFirstName = "Jimmy";
 
-        UserRegistrationRequest theUpdatedRequest = userRegistrationRequest.withFirstName(theFirstName);
+        AccountRegistrationRequest theUpdatedRequest = accountRegistrationRequest.withFirstName(theFirstName);
 
         String theFirstNameFromTheUpdatedRequest = theUpdatedRequest.getFirstName();
         assertThat(theFirstNameFromTheUpdatedRequest).isEqualTo(theFirstName);
@@ -30,7 +30,7 @@ class UserRegistrationRequestTest {
     void doesNotSetTheFirstNameForNullInput() {
         String thePredictedMessage = "First name required for new account";
 
-        InvalidRequestException theException = assertThrows(InvalidRequestException.class, () -> userRegistrationRequest.withFirstName(null));
+        InvalidRequestException theException = assertThrows(InvalidRequestException.class, () -> accountRegistrationRequest.withFirstName(null));
 
         String theMessageFromTheException = theException.getMessage();
         assertThat(theMessageFromTheException).isEqualTo(thePredictedMessage);
@@ -40,7 +40,7 @@ class UserRegistrationRequestTest {
     void doesNotSetTheFirstNameForEmptyInput() {
         String thePredictedMessage = "First name required for new account";
 
-        InvalidRequestException theException = assertThrows(InvalidRequestException.class, () -> userRegistrationRequest.withFirstName(""));
+        InvalidRequestException theException = assertThrows(InvalidRequestException.class, () -> accountRegistrationRequest.withFirstName(""));
 
         String theMessageFromTheException = theException.getMessage();
         assertThat(theMessageFromTheException).isEqualTo(thePredictedMessage);
@@ -50,7 +50,7 @@ class UserRegistrationRequestTest {
     void setsLastNameForValidInput() {
         String theLastName = "Recard";
 
-        UserRegistrationRequest theUpdatedRequest = userRegistrationRequest.withLastName(theLastName);
+        AccountRegistrationRequest theUpdatedRequest = accountRegistrationRequest.withLastName(theLastName);
 
         String theLastNameFromTheUpdatedRequest = theUpdatedRequest.getLastName();
         assertThat(theLastNameFromTheUpdatedRequest).isEqualTo(theLastName);
@@ -60,7 +60,7 @@ class UserRegistrationRequestTest {
     void doesNotSetTheLastNameForNullInput() {
         String thePredictedMessage = "Last name required for new account";
 
-        InvalidRequestException theException = assertThrows(InvalidRequestException.class, () -> userRegistrationRequest.withLastName(null));
+        InvalidRequestException theException = assertThrows(InvalidRequestException.class, () -> accountRegistrationRequest.withLastName(null));
 
         String theMessageFromTheException = theException.getMessage();
         assertThat(theMessageFromTheException).isEqualTo(thePredictedMessage);
@@ -70,7 +70,7 @@ class UserRegistrationRequestTest {
     void doesNotSetTheLastNameForEmptyInput() {
         String thePredictedMessage = "Last name required for new account";
 
-        InvalidRequestException theException = assertThrows(InvalidRequestException.class, () -> userRegistrationRequest.withLastName(""));
+        InvalidRequestException theException = assertThrows(InvalidRequestException.class, () -> accountRegistrationRequest.withLastName(""));
 
         String theMessageFromTheException = theException.getMessage();
         assertThat(theMessageFromTheException).isEqualTo(thePredictedMessage);
@@ -80,7 +80,7 @@ class UserRegistrationRequestTest {
     void setsEmailAddressForValidInput() {
         String theEmailAddress = "jimmy.recard@jr.com";
 
-        UserRegistrationRequest theUpdatedRequest = userRegistrationRequest.withEmailAddress(theEmailAddress);
+        AccountRegistrationRequest theUpdatedRequest = accountRegistrationRequest.withEmailAddress(theEmailAddress);
 
         String theEmailAddressFromTheUpdatedRequest = theUpdatedRequest.getEmailAddress();
         assertThat(theEmailAddressFromTheUpdatedRequest).isEqualTo(theEmailAddress);
@@ -90,7 +90,7 @@ class UserRegistrationRequestTest {
     void doesNotSetTheEmailAddressForNullInput() {
         String thePredictedMessage = "Email address required for new account";
 
-        InvalidRequestException theException = assertThrows(InvalidRequestException.class, () -> userRegistrationRequest.withEmailAddress(null));
+        InvalidRequestException theException = assertThrows(InvalidRequestException.class, () -> accountRegistrationRequest.withEmailAddress(null));
 
         String theMessageFromTheException = theException.getMessage();
         assertThat(theMessageFromTheException).isEqualTo(thePredictedMessage);
@@ -100,7 +100,7 @@ class UserRegistrationRequestTest {
     void doesNotSetTheEmailAddressForEmptyInput() {
         String thePredictedMessage = "Email address required for new account";
 
-        InvalidRequestException theException = assertThrows(InvalidRequestException.class, () -> userRegistrationRequest.withEmailAddress(""));
+        InvalidRequestException theException = assertThrows(InvalidRequestException.class, () -> accountRegistrationRequest.withEmailAddress(""));
 
         String theMessageFromTheException = theException.getMessage();
         assertThat(theMessageFromTheException).isEqualTo(thePredictedMessage);
@@ -110,7 +110,7 @@ class UserRegistrationRequestTest {
     void setsPasswordForValidInput() {
         String thePassword = "changeit";
 
-        UserRegistrationRequest theUpdatedRequest = userRegistrationRequest.withPassword(thePassword);
+        AccountRegistrationRequest theUpdatedRequest = accountRegistrationRequest.withPassword(thePassword);
 
         String thePasswordFromTheUpdatedRequest = theUpdatedRequest.getPassword();
         assertThat(thePasswordFromTheUpdatedRequest).isEqualTo(thePassword);
@@ -120,7 +120,7 @@ class UserRegistrationRequestTest {
     void doesNotSetThePasswordForNullInput() {
         String thePredictedMessage = "Password required for new account";
 
-        InvalidRequestException theException = assertThrows(InvalidRequestException.class, () -> userRegistrationRequest.withPassword(null));
+        InvalidRequestException theException = assertThrows(InvalidRequestException.class, () -> accountRegistrationRequest.withPassword(null));
 
         String theMessageFromTheException = theException.getMessage();
         assertThat(theMessageFromTheException).isEqualTo(thePredictedMessage);
@@ -130,7 +130,7 @@ class UserRegistrationRequestTest {
     void doesNotSetThePasswordForEmptyInput() {
         String thePredictedMessage = "Password required for new account";
 
-        InvalidRequestException theException = assertThrows(InvalidRequestException.class, () -> userRegistrationRequest.withPassword(""));
+        InvalidRequestException theException = assertThrows(InvalidRequestException.class, () -> accountRegistrationRequest.withPassword(""));
 
         String theMessageFromTheException = theException.getMessage();
         assertThat(theMessageFromTheException).isEqualTo(thePredictedMessage);
@@ -139,17 +139,17 @@ class UserRegistrationRequestTest {
     @Test
     void confirmPasswordDoesNothingIfPasswordsMatch() {
         String thePassword = "changeit";
-        userRegistrationRequest.withPassword(thePassword);
+        accountRegistrationRequest.withPassword(thePassword);
 
-        userRegistrationRequest.confirmPassword(thePassword);
+        accountRegistrationRequest.confirmPassword(thePassword);
     }
 
     @Test
     void confirmPasswordThrowsAnExceptionIfPasswordsDoNotMatch() {
         String thePredictedMessage = "Passwords do not match for new account";
-        userRegistrationRequest.withPassword("changeit_1");
+        accountRegistrationRequest.withPassword("changeit_1");
 
-        InvalidRequestException theException = assertThrows(InvalidRequestException.class, () -> userRegistrationRequest.confirmPassword("changeit_2"));
+        InvalidRequestException theException = assertThrows(InvalidRequestException.class, () -> accountRegistrationRequest.confirmPassword("changeit_2"));
 
         String theMessageFromTheException = theException.getMessage();
         assertThat(theMessageFromTheException).isEqualTo(thePredictedMessage);

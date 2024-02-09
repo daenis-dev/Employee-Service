@@ -1,6 +1,6 @@
-package com.companyname.services.core.users;
+package com.companyname.services.core.accounts;
 
-import com.companyname.services.core.users.api.model.UserRegistrationRequest;
+import com.companyname.services.core.accounts.api.model.AccountRegistrationRequest;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 
@@ -18,7 +18,7 @@ public class KeycloakUser {
     private String username;
     private List<KeycloakCredentials> credentials;
 
-    KeycloakUser mappedFrom(UserRegistrationRequest request) {
+    KeycloakUser mappedFrom(AccountRegistrationRequest request) {
         this.firstName = request.getFirstName();
         this.lastName = request.getLastName();
         this.email = request.getEmailAddress();
