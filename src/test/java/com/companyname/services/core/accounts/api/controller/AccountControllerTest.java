@@ -1,5 +1,6 @@
 package com.companyname.services.core.accounts.api.controller;
 
+import com.companyname.services.core.accounts.api.behavior.Login;
 import com.companyname.services.core.accounts.api.behavior.RegisterAccount;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -20,18 +21,21 @@ class AccountControllerTest {
     @Mock
     private RegisterAccount registerAccount;
 
+    @Mock
+    private Login login;
+
     private MockMvc mockMvc;
 
     @BeforeEach
     void init() {
         mockMvc = MockMvcBuilders
-                .standaloneSetup(new AccountController(registerAccount))
+                .standaloneSetup(new AccountController(registerAccount, login))
                 .build();
     }
 
     @Test
     void registersUser() throws Exception {
-        mockMvc.perform(post("/v1/users")
+        mockMvc.perform(post("/v1/accounts")
                         .param("first-name", "Jimmy")
                         .param("last-name", "Recard")
                         .param("email-address", "jimmy.recard@jr.com")

@@ -3,6 +3,7 @@ package com.companyname.services.core.accounts.api.model;
 import com.companyname.services.core.errorhandling.InvalidRequestException;
 import lombok.Getter;
 
+// TODO: test
 @Getter
 public class LoginRequest {
 

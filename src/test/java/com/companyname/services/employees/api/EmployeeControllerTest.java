@@ -2,6 +2,7 @@ package com.companyname.services.employees.api;
 
 import com.companyname.services.employees.api.behavior.CreateEmployee;
 import com.companyname.services.employees.api.behavior.FindAllEmployees;
+import com.companyname.services.employees.api.behavior.UpdateEmployee;
 import com.companyname.services.employees.api.controller.EmployeeController;
 import com.companyname.services.employees.api.model.EmployeeDetails;
 import org.junit.jupiter.api.BeforeEach;
@@ -32,14 +33,14 @@ class EmployeeControllerTest {
     private FindAllEmployees findAllEmployees;
 
     @Mock
-    private FindEmployeeById findEmployeeById;
+    private UpdateEmployee updateEmployee;
 
     private MockMvc mockMvc;
 
     @BeforeEach
     void init() {
         mockMvc = MockMvcBuilders
-                .standaloneSetup(new EmployeeController(createEmployee, findAllEmployees, findEmployeeById))
+                .standaloneSetup(new EmployeeController(createEmployee, findAllEmployees, updateEmployee))
                 .build();
     }
 
@@ -68,16 +69,5 @@ class EmployeeControllerTest {
         mockMvc.perform(get("/v1/employees"))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$[0].id", is(1)));
-    }
-
-    @Test
-    void findsEmployeeById() throws Exception {
-        EmployeeDetails employeeDetails = new EmployeeDetails(1, "jon", "doe", "Software Engineer", "", 150000.00);
-
-        when(findEmployeeById.executeFor(1)).thenReturn(employeeDetails);
-
-        mockMvc.perform(get("/v1/employees/1"))
-                .andExpect(status().isOk())
-                .andExpect(jsonPath("$.id", is(1)));
     }
 }

@@ -43,6 +43,7 @@ public final class EmployeeController {
         return ResponseEntity.ok(findAllEmployees.execute());
     }
 
+    // TODO: test
     @PutMapping("/v1/employees/{id}")
     public ResponseEntity<EmployeeDetails> updateEmployee(@PathVariable("id") String id,
                                                           @RequestParam("first-name") String firstName,
