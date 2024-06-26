@@ -135,7 +135,7 @@ For security purposes, the RSA key is not included with version control. Instead
 >> bin/kc.bat start --https-key-store-file=~/projects/authorization-server/keycloak21.1.2/keycloak21.1.2/conf/server.p12
 ```
 
-
+bin/  conf/  data/  lib/  LICENSE.txt  providers/  README.md  themes/  version.txt
 
 #### Configure the Authorization Server
 
@@ -215,3 +215,4 @@ For security purposes, the RSA key is not included with version control. Instead
 
 - Find all employees
 - Find employee by ID
+
