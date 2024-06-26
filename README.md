@@ -10,8 +10,8 @@
   - Creating an Account
 
     - **URL:** https://localhost:8080/v1/accounts/login
-    - **Method: **POST
-    - **URL Request Parameters**
+    - **Method:** POST
+    - **URL Request Parameters:**
       - first-name
       - last-name
       - email-address
@@ -20,11 +20,11 @@
 
   - Logging In
 
-    - **URL: **https://localhost:8080/v1/accounts/login
+    - **URL:** https://localhost:8080/v1/accounts/login
 
-    - **Method: **POST
+    - **Method:** POST
 
-    - **URL Request Parameters**
+    - **URL Request Parameters:**
 
       - email-address
       - password
@@ -41,9 +41,9 @@
 
     - Create Employee
 
-      - **URL: **https://localhost:8080/v1/employees
-      - **Method: **POST
-      - **URL Request Parameters**
+      - **URL:** https://localhost:8080/v1/employees
+      - **Method:** POST
+      - **URL Request Parameters:**
         - first-name
         - last-name
         - email-address
@@ -52,9 +52,9 @@
 
     - Find All Employees
 
-      - **URL: **https://localhost:8080/v1/employees
+      - **URL:** https://localhost:8080/v1/employees
 
-      - **Method: **GET
+      - **Method:** GET
 
       - **Response Body:**
 
@@ -81,9 +81,9 @@
 
     - Find Employee by ID
 
-      - **URL: **https://localhost:8080/v1/employees/1
+      - **URL:** https://localhost:8080/v1/employees/1
 
-      - **Method: **GET
+      - **Method:** GET
 
       - **Response Body:**
 
