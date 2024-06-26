@@ -9,7 +9,7 @@
 
   - Creating an Account
 
-    - **URL: **https://localhost:8080/v1/accounts/login
+    - **URL:** https://localhost:8080/v1/accounts/login
     - **Method: **POST
     - **URL Request Parameters**
       - first-name
