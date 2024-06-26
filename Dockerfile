@@ -26,5 +26,5 @@ COPY --from=postgres-run /docker-entrypoint-initdb.d/ /docker-entrypoint-initdb.
 EXPOSE 8080
 
 # Specify the command to run on container start (include VM args) (try )
-CMD ["java", "-Dkeystore-path=/app/employee-service.p12", "-Dkeystore-password=changeit-keystore", "-Dkeystore-type=pkcs12", "-Dkeystore-alias=employee-service", "-Ddatabase-url=jdbc:postgresql://localhost:5432/employee-service", "-Ddatabase-username=postgres", "-Ddatabase-password=changeit", "-Dkeycloak-admin-username=auth-admin", "-Dkeycloak-admin-password=changeit-auth", "-jar", "employee-service-1.0-SNAPSHOT.jar"]
+CMD ["java", "-Dkeystore-path=/app/employee-service.p12", "-Dkeystore-password=changeit", "-Dkeystore-type=pkcs12", "-Dkeystore-alias=employee-service", "-Ddatabase-url=jdbc:postgresql://localhost:5432/employee-service", "-Ddatabase-username=postgres", "-Ddatabase-password=changeitdb", "-Dkeycloak-admin-username=auth-admin", "-Dkeycloak-admin-password=changeitauthadmin", "-jar", "employee-service-1.0-SNAPSHOT.jar"]
 
