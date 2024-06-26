@@ -5,7 +5,7 @@ FROM openjdk:17-oracle
 FROM postgres:latest
 
 ENV POSTGRES_USER=postgres
-ENV POSTGRES_PASSWORD=changeit
+ENV POSTGRES_PASSWORD=changeitdb
 ENV POSTGRES_DB=employee-service
 COPY src/main/resources/schema.sql /docker-entrypoint-initdb.d/
 
