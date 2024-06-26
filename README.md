@@ -1,6 +1,106 @@
 # Employee Service
 
 ---
+### Overview
+
+- Web application that allows clients to log in and manage employee data
+
+- API
+
+  - Creating an Account
+
+    - **URL: **https://localhost:8080/v1/accounts/login
+    - **Method: **POST
+    - **URL Request Parameters**
+      - first-name
+      - last-name
+      - email-address
+      - password
+      - confirmed-password
+
+  - Logging In
+
+    - **URL: **https://localhost:8080/v1/accounts/login
+
+    - **Method: **POST
+
+    - **URL Request Parameters**
+
+      - email-address
+      - password
+
+    - **Response Body:**
+
+      ```json
+      {
+         "accessToken": "zxkjflk..789dfs" 
+      }
+      ```
+
+  - Managing Employee Data
+
+    - Create Employee
+
+      - **URL: **https://localhost:8080/v1/employees
+      - **Method: **POST
+      - **URL Request Parameters**
+        - first-name
+        - last-name
+        - email-address
+        - job-title
+        - salary
+
+    - Find All Employees
+
+      - **URL: **https://localhost:8080/v1/employees
+
+      - **Method: **GET
+
+      - **Response Body:**
+
+        ```json
+        [
+            {
+                "id": 1,
+                "firstName": "bob",
+                "lastName": "doe",
+                "emailAddress": "bob.doe@mail.com",
+                "title": "manager",
+                "salary": 120000.00
+            },
+            {
+                "id": 2,
+                "firstName": "jon",
+                "lastName": "boe",
+                "emailAddress": "jon.boe@mail.com",
+                "title": "Engineer",
+                "salary": 110000.00
+            }
+        ]
+        ```
+
+    - Find Employee by ID
+
+      - **URL: **https://localhost:8080/v1/employees/1
+
+      - **Method: **GET
+
+      - **Response Body:**
+
+        ```json
+        {
+            "id": 1,
+            "firstName": "bob",
+            "lastName": "doe",
+            "emailAddress": "bob.doe@mail.com",
+            "title": "manager",
+        	"salary": 120000.00
+        }
+        ```
+
+        
+
+---
 
 ### Environment Configuration
 
@@ -135,7 +235,7 @@ For security purposes, the RSA key is not included with version control. Instead
 >> bin/kc.bat start --https-key-store-file=~/projects/authorization-server/keycloak21.1.2/keycloak21.1.2/conf/server.p12
 ```
 
-bin/  conf/  data/  lib/  LICENSE.txt  providers/  README.md  themes/  version.txt
+
 
 #### Configure the Authorization Server
 
@@ -206,13 +306,3 @@ bin/  conf/  data/  lib/  LICENSE.txt  providers/  README.md  themes/  version.t
 ```
 
 - For running integration tests
-
-
-
----
-
-### API Documentation
-
-- Find all employees
-- Find employee by ID
-
